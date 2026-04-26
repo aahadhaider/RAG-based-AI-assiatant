@@ -1,15 +1,57 @@
-# How to use this RAG AI Teaching Assistant on your own data
-## step-1 collect your videos
-move your all video to videos  folder
+🤖 RAG-Based AI Assistant
 
-## step-2 convert videos into mp3
-convert all the video by running to video_to_mp3 
+A Retrieval-Augmented Generation (RAG) based AI Assistant that combines the power of semantic search and large language models to provide accurate, context-aware responses from custom data.
 
-## step-3 convert mp3 to json
-convert all the mp3 files to json by running mp3_to_json
+📌 Project Overview
 
-## convert json file to vectors
-use the file preprocess_json to convert the json files to a data frame with embeddings and save it as a joblib pickle
+This project implements a RAG (Retrieval-Augmented Generation) pipeline where:
 
-## step-5  prompt  generation and feeding to llm
- read the joblib file and load it into the  memory.then create a relevant prompt as per the user query and feed it to the llm
+Relevant information is retrieved from a custom dataset
+The retrieved context is passed to a language model
+The model generates accurate and context-based answers
+
+This approach reduces hallucination and improves response reliability.
+
+🚀 Features
+🔍 Semantic Search using embeddings
+📂 Custom JSON-based knowledge base
+⚡ Fast similarity search using cosine similarity
+🧠 Context-aware response generation
+💾 Embeddings stored using joblib
+🔗 Integration with local embedding API (e.g., BGE model)
+
+
+🛠️ Tech Stack
+Python
+NumPy
+Pandas
+Scikit-learn (cosine similarity)
+Joblib
+Requests
+Embedding Model (BGE-M3 or similar)
+LLM API (OpenAI / Local LLM)
+
+📁 Project Structure
+RAG-AI-Assistant/
+│
+├── jsons/                # Knowledge base (input data)
+├── embeddings.joblib     # Stored embeddings
+├── main.py               # Main query script
+├── create_embeddings.py  # Script to generate embeddings
+├── config.py             # API keys and configs
+└── README.md
+
+
+⚙️ How It Works
+Data Loading
+JSON files are loaded from the jsons/ folder
+Embedding Creation
+Text chunks are converted into vector embeddings using an embedding model
+Storage
+Embeddings are stored locally using joblib
+Query Processing
+User input is converted into embedding
+Similarity Search
+Cosine similarity is used to find the most relevant chunks
+Response Generation
+Retrieved context is passed to the LLM for final answer generation
